@@ -40,8 +40,10 @@ NSInteger const ATLQueryControllerPaginationWindow = 30;
 {
     self = [super init];
     if (self) {
-        LYRQuery *query = [LYRQuery queryWithQueryableClass:[LYRMessage class]];
-        query.predicate = [LYRPredicate predicateWithProperty:@"conversation" predicateOperator:LYRPredicateOperatorIsEqualTo value:conversation];
+        LYRQuery *query = [LYRQuery queryWithClass:[LYRMessage class]];
+        LYRPredicate* conversationPredicate = [LYRPredicate predicateWithProperty:@"conversation" operator:LYRPredicateOperatorIsEqualTo value:conversation];
+        LYRPredicate* mimePredicate = [LYRPredicate predicateWithProperty:@"parts.MIMEType" operator:LYRPredicateOperatorIsNotEqualTo value:@"text/example"];
+        query.predicate = [LYRCompoundPredicate compoundPredicateWithType:LYRCompoundPredicateTypeAnd subpredicates:@[conversationPredicate, mimePredicate]];
         query.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"position" ascending:YES]];
        
         NSUInteger numberOfMessagesAvailable = [layerClient countForQuery:query error:nil];
