@@ -83,6 +83,9 @@
  */
 - (NSOrderedSet *)conversationViewController:(ATLConversationViewController *)viewController messagesForMediaAttachments:(NSArray *)mediaAttachments;
 
+
+- (void)handleTap;
+
 @end
 
 ///---------------------------------------
@@ -228,5 +231,6 @@
 @property (nonatomic) BOOL marksMessagesAsRead;
 
 - (void)fetchLayerMessages;
+
 
 @end

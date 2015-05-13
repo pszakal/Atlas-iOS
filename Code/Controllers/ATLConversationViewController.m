@@ -47,6 +47,8 @@
 @property (nonatomic) BOOL canDisableAddressBar;
 @property (nonatomic) dispatch_queue_t animationQueue;
 
+@property (nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+
 @end
 
 @implementation ATLConversationViewController
@@ -103,6 +105,15 @@ static NSString *const ATLPushNotificationSoundName = @"layerbell.caf";
                                                           collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [self.collectionView addGestureRecognizer:_tapGestureRecognizer];
+    
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)tapGestureRecognizer{
+    NSLog(@"collectionview tapped");
+    [self.delegate handleTap];
 }
 
 - (void)setLayerClient:(LYRClient *)layerClient

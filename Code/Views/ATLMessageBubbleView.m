@@ -21,8 +21,8 @@
 #import "ATLMessageBubbleView.h"
 #import "ATLMessagingUtilities.h"
 
-CGFloat const ATLMessageBubbleLabelVerticalPadding = 6.0f;
-CGFloat const ATLMessageBubbleLabelHorizontalPadding = 9.0f;
+CGFloat const ATLMessageBubbleLabelVerticalPadding = 8.0f;
+CGFloat const ATLMessageBubbleLabelHorizontalPadding = 12.0f;
 
 CGFloat const ATLMessageBubbleMapWidth = 200.0f;
 CGFloat const ATLMessageBubbleMapHeight = 200.0f;
@@ -89,12 +89,12 @@ typedef NS_ENUM(NSInteger, ATLBubbleViewContentType) {
         [self configureBubbleImageViewConstraints];
         [self configureProgressViewConstraints];
 
-        _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleLabelTap:)];
-        _tapGestureRecognizer.delegate = self;
-        [self.bubbleViewLabel addGestureRecognizer:_tapGestureRecognizer];
-        
-        UILongPressGestureRecognizer *gestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-        [self addGestureRecognizer:gestureRecognizer];
+//        _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleLabelTap:)];
+//        _tapGestureRecognizer.delegate = self;
+//        [self.bubbleViewLabel addGestureRecognizer:_tapGestureRecognizer];
+//        
+//        UILongPressGestureRecognizer *gestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+//        [self addGestureRecognizer:gestureRecognizer];
         
         [self prepareForReuse];
     }
