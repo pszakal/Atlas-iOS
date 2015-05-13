@@ -64,6 +64,8 @@ static CGFloat const ATLButtonHeight = 28.0f;
 {
     self = [super init];
     if (self) {
+        self.barStyle = UIBarStyleBlack;
+
         self.accessibilityLabel = ATLMessageInputToolbarAccessibilityLabel;
         self.translatesAutoresizingMaskIntoConstraints = NO;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -83,6 +85,7 @@ static CGFloat const ATLButtonHeight = 28.0f;
         self.textInputView = [[ATLMessageComposeTextView alloc] init];
         self.textInputView.accessibilityLabel = ATLMessageInputToolbarTextInputView;
         self.textInputView.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.textInputView.keyboardAppearance = UIKeyboardAppearanceDark;
         self.textInputView.delegate = self;
         self.textInputView.layer.borderColor = ATLGrayColor().CGColor;
         self.textInputView.layer.borderWidth = 0.5;
