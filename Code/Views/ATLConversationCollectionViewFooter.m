@@ -62,11 +62,13 @@ CGFloat const ATLConversationViewFooterUnClusteredPadding = 7;
     self.recipientStatusLabel = [[UILabel alloc] init];
     self.recipientStatusLabel.font = [[self class] defaultRecipientStatusFont];
     self.recipientStatusLabel.textColor = [UIColor grayColor];
-    self.recipientStatusLabel.textAlignment = NSTextAlignmentRight;
-    self.recipientStatusLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.recipientStatusLabel.textAlignment = NSTextAlignmentCenter;
+    //self.recipientStatusLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:self.recipientStatusLabel];
     
-    [self configureRecipientStatusLabelConstraints];
+    //[self configureRecipientStatusLabelConstraints];
+    self.recipientStatusLabel.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 20);
+
 }
 
 - (void)prepareForReuse
@@ -117,7 +119,7 @@ CGFloat const ATLConversationViewFooterUnClusteredPadding = 7;
 
 + (UIFont *)defaultRecipientStatusFont
 {
-    return [UIFont boldSystemFontOfSize:14];
+    return [UIFont systemFontOfSize:11];
 }
 
 - (void)configureRecipientStatusLabelConstraints

@@ -78,10 +78,11 @@ static CGFloat const ATLButtonHeight = 28.0f;
         self.leftAccessoryButton.contentMode = UIViewContentModeScaleAspectFit;
         [self.leftAccessoryButton setImage:self.leftAccessoryImage forState:UIControlStateNormal];
         [self.leftAccessoryButton addTarget:self action:@selector(leftAccessoryButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.leftAccessoryButton];
+        //[self addSubview:self.leftAccessoryButton];
         
         self.textInputView = [[ATLMessageComposeTextView alloc] init];
         self.textInputView.accessibilityLabel = ATLMessageInputToolbarTextInputView;
+        self.textInputView.autocorrectionType = UITextAutocorrectionTypeNo;
         self.textInputView.delegate = self;
         self.textInputView.layer.borderColor = ATLGrayColor().CGColor;
         self.textInputView.layer.borderWidth = 0.5;
@@ -128,7 +129,7 @@ static CGFloat const ATLButtonHeight = 28.0f;
     rightButtonFrame.size.height = ATLButtonHeight;
     rightButtonFrame.origin.x = CGRectGetWidth(frame) - CGRectGetWidth(rightButtonFrame) - ATLRightButtonHorizontalMargin;
 
-    textViewFrame.origin.x = CGRectGetMaxX(leftButtonFrame) + ATLLeftButtonHorizontalMargin;
+    textViewFrame.origin.x = ATLLeftButtonHorizontalMargin;
     textViewFrame.origin.y = ATLVerticalMargin;
     textViewFrame.size.width = CGRectGetMinX(rightButtonFrame) - CGRectGetMinX(textViewFrame) - ATLRightButtonHorizontalMargin;
 
@@ -343,10 +344,10 @@ static CGFloat const ATLButtonHeight = 28.0f;
 
 - (void)configureRightAccessoryButtonState
 {
-    if (self.textInputView.text.length) {
+    //if (self.textInputView.text.length) {
         [self configureRightAccessoryButtonForText];
         self.rightAccessoryButton.enabled = YES;
-    } else {
+    /*} else {
         if (self.displaysRightAccessoryImage) {
             [self configureRightAccessoryButtonForImage];
             self.rightAccessoryButton.enabled = YES;
@@ -354,7 +355,7 @@ static CGFloat const ATLButtonHeight = 28.0f;
             [self configureRightAccessoryButtonForText];
             self.rightAccessoryButton.enabled = NO;
         }
-    }
+    }*/
 }
 
 - (void)configureRightAccessoryButtonForText

@@ -164,7 +164,10 @@ static NSString *const ATLPushNotificationSoundName = @"layerbell.caf";
 - (void)setConversation:(LYRConversation *)conversation
 {
     if (!conversation && !_conversation) return;
-    if ([conversation isEqual:_conversation]) return;
+    if ([conversation isEqual:_conversation]) {
+        //_conversation = conversation;
+        return;
+    }
     
     _conversation = conversation;
     
@@ -506,12 +509,14 @@ static NSString *const ATLPushNotificationSoundName = @"layerbell.caf";
         NSOrderedSet *messages = [self messagesForMediaAttachments:messageInputToolbar.mediaAttachments];
         for (LYRMessage *message in messages) {
             [self sendMessage:message];
+            [self performSelector:@selector(fetchLayerMessages) withObject:nil afterDelay:1.0];
+            //[self fetchLayerMessages];
         }
-    } else {
+    } /*else {
         if (messageInputToolbar.textInputView.text.length == 0) {
             [self sendLocationMessage];
         }
-    }
+    }*/
     if (self.addressBarController) [self.addressBarController disable];
 }
 

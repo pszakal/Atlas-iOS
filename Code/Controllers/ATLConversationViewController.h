@@ -227,4 +227,6 @@
  */
 @property (nonatomic) BOOL marksMessagesAsRead;
 
+- (void)fetchLayerMessages;
+
 @end

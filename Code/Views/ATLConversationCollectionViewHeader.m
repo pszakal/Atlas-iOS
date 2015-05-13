@@ -79,11 +79,16 @@ CGFloat const ATLConversationViewHeaderEmptyHeight = 1;
     self.dateLabel = [[UILabel alloc] init];
     self.dateLabel.textAlignment = NSTextAlignmentCenter;
     self.dateLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.dateLabel.font = [UIFont systemFontOfSize:11];
+    self.dateLabel.textColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.4];
+
     [self addSubview:self.dateLabel];
     
     self.participantLabel = [[UILabel alloc] init];
     self.participantLabel.font = _participantLabelFont;
-    self.participantLabel.textColor = _participantLabelTextColor;
+    //self.participantLabel.textColor = _participantLabelTextColor;
+    self.participantLabel.textColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.4];//
+
     self.participantLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:self.participantLabel];
     

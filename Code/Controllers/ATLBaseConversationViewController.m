@@ -96,6 +96,13 @@ static CGFloat const ATLMaxScrollDistanceFromBottom = 150;
     [self atl_baseRegisterForNotifications];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+    [self.messageInputToolbar.textInputView becomeFirstResponder];
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
