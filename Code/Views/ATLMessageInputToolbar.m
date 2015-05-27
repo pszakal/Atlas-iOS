@@ -56,7 +56,7 @@ static CGFloat const ATLButtonHeight = 28.0f;
 + (void)initialize
 {
     ATLMessageInputToolbar *proxy = [self appearance];
-    proxy.rightAccessoryButtonActiveColor = ATLBlueColor();
+    proxy.rightAccessoryButtonActiveColor = [UIColor whiteColor]; //ATLBlueColor();
     proxy.rightAccessoryButtonDisabledColor = [UIColor grayColor];
 }
 
